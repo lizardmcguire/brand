@@ -113,3 +113,68 @@ main { padding-top: calc(89 / 1280 * 100vw); }
   .about .section { grid-template-columns: 1fr; row-gap: 24px; padding: 56px 16px 64px; margin: 0 -16px; }
   .about { padding-left: 16px; padding-right: 16px; }
 }
+
+/* ---------- Lightbox (Figma frame "CreativeLightbox") ---------- */
+.tile { display: block; cursor: zoom-in; }
+html.lb-open { overflow: hidden; }
+
+.lightbox {
+  position: fixed;
+  top: 66px; left: 0; right: 0; bottom: 0;   /* the site header stays visible above it */
+  z-index: 20;
+  background: var(--bg);
+}
+.lightbox[hidden] { display: none; }
+
+.lb-stage {
+  position: absolute;
+  top: 34px; bottom: 54px;                    /* image sits 100px from the top of the window */
+  left: 50px; right: 50px;
+  display: flex; justify-content: center; align-items: center;   /* tall images fill the height; wide ones sit centred */
+}
+.lb-figure { position: relative; margin: 0; }
+.lb-img {
+  display: block;
+  max-height: calc(100vh - 66px - 34px - 54px);   /* window minus header and top/bottom space */
+  max-width: calc(100vw - 2 * (185px + 19px + 50px)); /* leave room for the description */
+  width: auto; height: auto;
+  object-fit: contain;
+}
+.lb-caption {
+  position: absolute;
+  left: calc(100% + 19px);
+  bottom: 0;
+  width: 185px;
+  font-size: 16px;
+  line-height: 1.1;
+  color: #000;
+}
+
+.lb-prev, .lb-next, .lb-close {
+  position: absolute;
+  background: none; border: 0; padding: 0; margin: 0;
+  color: #c8c8c8;            /* Utility Colours / Mid-Grey */
+  cursor: pointer;
+  font: inherit;
+}
+.lb-prev, .lb-next { top: 50%; width: 44px; height: 44px; margin-top: -55px; display: grid; place-items: center; }
+.lb-prev { left: 0; }
+.lb-next { right: 0; }
+.lb-prev svg { transform: scaleX(-1); }
+.lb-prev:hover, .lb-next:hover, .lb-close:hover { color: var(--ink); }
+.lb-prev:focus-visible, .lb-next:focus-visible, .lb-close:focus-visible { outline: 1px solid var(--ink); outline-offset: 2px; }
+
+/* Close is not in the design, so it stays out of sight until reached by keyboard */
+.lb-close { top: 8px; right: 17px; font-size: var(--small); color: var(--muted); opacity: 0; }
+.lb-close:focus-visible { opacity: 1; }
+.lb-count { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+
+@media (max-width: 760px) {
+  .lightbox { top: 66px; }
+  .lb-stage { left: 16px; right: 16px; top: 16px; bottom: 16px; align-items: center; }
+  .lb-figure { max-width: 100%; }
+  .lb-img { max-width: 100%; max-height: calc(100vh - 66px - 32px - 80px); }
+  .lb-caption { position: static; width: auto; margin-top: 12px; }
+  .lb-prev, .lb-next { margin-top: -22px; }
+  .lb-prev { left: -6px; } .lb-next { right: -6px; }
+}
