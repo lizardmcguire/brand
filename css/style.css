@@ -183,6 +183,7 @@ html.lb-open { overflow: hidden; }
 @media (min-width: 761px) {
   main.about { padding-top: 0; }
   .about .label { font-size: 20px; line-height: 18px; }
+  .about .section > div:first-child { display: flex; flex-direction: column; align-items: flex-start; }
   .about .plain-list { padding-top: 2px; }
   .about .plain-list li { line-height: 24px; padding-bottom: 6px; }
   .about .section:nth-child(2) { padding-bottom: 102px; }
