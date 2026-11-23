@@ -67,7 +67,7 @@ main { padding-top: calc(89 / 1280 * 100vw); }
 
 .site-footer {
   display: flex; justify-content: flex-end;
-  padding: calc(165 / 1280 * 100vw) 17px 14px;
+  padding: calc(185 / 1280 * 100vw) 17px 14px;
   font-size: var(--small);
 }
 .site-footer .email { color: var(--muted); }
