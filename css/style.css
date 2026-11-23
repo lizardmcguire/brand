@@ -178,3 +178,14 @@ html.lb-open { overflow: hidden; }
   .lb-prev, .lb-next { margin-top: -22px; }
   .lb-prev { left: -6px; } .lb-next { right: -6px; }
 }
+
+/* About page: desktop spacing from the updated Figma frame */
+@media (min-width: 761px) {
+  main.about { padding-top: 0; }
+  .about .label { font-size: 20px; line-height: 18px; }
+  .about .plain-list { padding-top: 2px; }
+  .about .plain-list li { line-height: 24px; padding-bottom: 6px; }
+  .about .section:nth-child(2) { padding-bottom: 102px; }
+  .about .section:nth-child(3) { padding-bottom: 60px; }
+  .about + .site-footer { padding-top: 120px; }
+}
