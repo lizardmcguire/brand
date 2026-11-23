@@ -69,7 +69,8 @@ main { padding-top: calc(89 / 1280 * 100vw); }
   body { font-size: 18px; }
   .site-header { padding: 0 16px; justify-content: space-between; }
   .site-header .name { flex: none; }
-  .site-header .tagline { display: none; }
+  .site-header { gap: 12px; font-size: 16px; }
+  .site-header .tagline { flex: 1; text-align: center; }
   .site-header nav { gap: 24px; }
   main { padding: 24px 16px 0; }
   .collage {
@@ -79,4 +80,28 @@ main { padding-top: calc(89 / 1280 * 100vw); }
   .tile { position: static; width: auto !important; height: auto !important; }
   .tile img { height: auto; }
   .site-footer { padding: 72px 16px 14px; }
+}
+
+/* ---------- About page (matches the Figma frame "creative.lisaes.com/about") ---------- */
+.about .section {
+  display: grid;
+  grid-template-columns: 50% 1fr;
+  padding: 106px 11px 120px;
+  margin: 0 -11px;
+}
+.about { padding-left: 11px; padding-right: 11px; }
+.about .section + .section { border-top: 1px solid var(--rule); }
+.labels { display: flex; flex-direction: column; gap: 14px; align-items: flex-start; }
+.label { display: inline-flex; align-items: center; gap: 9px; font-size: var(--small); }
+.label::before { content: ""; width: 7px; height: 7px; background: #7a1e1e; flex: none; }
+.label-sand::before { background: #e6d9b3; }
+.cv-list, .plain-list { list-style: none; margin: 0; padding: 0; }
+.cv-list li { font-size: 18px; line-height: 2; }
+.plain-list li { font-size: 20px; line-height: 1.2; }
+.muted { color: var(--muted); }
+.site-header .tagline:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+@media (max-width: 760px) {
+  .about .section { grid-template-columns: 1fr; row-gap: 24px; padding: 56px 16px 64px; margin: 0 -16px; }
+  .about { padding-left: 16px; padding-right: 16px; }
 }
